@@ -7,7 +7,17 @@ on:
     branches: [ "main" ]
 
 jobs:
+  lint-workflows:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Rodar actionlint
+        uses: reviewdog/action-actionlint@v1
+
   test:
+    needs: lint-workflows
     runs-on: ubuntu-latest
 
     steps:
