@@ -1,4 +1,4 @@
-name: CDdocker build -t as-devops-works
+name: CD
 
 on:
   push:
