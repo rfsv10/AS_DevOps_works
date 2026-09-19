@@ -8,9 +8,12 @@ jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
-      - name: Enviar alerta para o Discord
-        run: |
-          MESSAGE=$(jq -Rs . <<< "🚀 Novo push em main por ${{ github.actor }}: ${{ github.event.head_commit.message }} (commit ${{ github.sha }})")
-          curl -H "Content-Type: application/json" \
-          -d "{\"content\": $MESSAGE}" \
-          ${{ secrets.DISCORD_WEBHOOK }}
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Enviar commits para o Discord
+        uses: Sniddl/discord-commits@v1.8
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          template: "avatar-with-link"
+          include-extras: true
