@@ -31,4 +31,4 @@ def test_dividir_por_zero():
 def test_potencia():
     response = client.post("/calculadora/potencia", json={"a": 2, "b": 3})
     assert response.status_code == 200
-    uvicorn app.main:app --reloadassert response.json()["resultado"] == 8
+    assert response.json()["resultado"] == 8
