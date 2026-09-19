@@ -45,3 +45,5 @@ def converter_distancia(dados: DistanciaRequest):
 
     # Verifica se a unidade informada é válida
     return {"erro": "Unidade inválida. Use 'km' ou 'milhas'"}
+
+## Validação de testes-conversor.py

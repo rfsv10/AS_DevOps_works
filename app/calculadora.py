@@ -36,3 +36,13 @@ def dividir(dados: OperacaoRequest):
     if dados.b == 0:
         return {"erro": "Divisão por zero não é permitida"}
     return {"resultado": dados.a / dados.b}
+
+
+
+# Potencia dois números
+@router.post("/potencia")
+def potencia(dados: OperacaoRequest):
+    return {"resultado": dados.a ** dados.b}
+
+
+#Validação de testes-calculadora.py
