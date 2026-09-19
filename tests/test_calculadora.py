@@ -27,3 +27,8 @@ def test_dividir_por_zero():
     resposta = client.post("/calculadora/dividir", json={"a": 10, "b": 0})
     assert resposta.status_code == 200
     assert resposta.json() == {"erro": "Divisão por zero não é permitida"}
+
+def test_potencia():
+    response = client.post("/calculadora/potencia", json={"a": 2, "b": 3})
+    assert response.status_code == 200
+    assert response.json()["resultado"] == 8
